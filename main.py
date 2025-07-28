@@ -27,9 +27,10 @@ def main() -> None:
             )
 
         guild = player_info.get("guild")
-        guild_obj, created = (Guild.objects.get_or_create(
-            name=guild.get("name"),
-            description=guild.get("description")
+        guild_obj, created = (
+            Guild.objects.get_or_create(
+                name=guild.get("name"),
+                description=guild.get("description")
             )
             if guild else (None, False)
         )
@@ -41,6 +42,7 @@ def main() -> None:
             race=race_obj,
             guild=guild_obj
         )
+
 
 if __name__ == "__main__":
     main()
